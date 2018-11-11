@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.guojialin.worker">
+
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".base.TApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ui.AActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.BActivity"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity
+            android:name=".ui.CActivity"
+            android:theme="@style/MyDialogStyle" />
+        <activity
+            android:name=".ui.DActivity"
+            android:configChanges="orientation"
+            android:windowSoftInputMode="adjustResize" />
+
+        <service
+            android:name=".service.AService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity android:name=".ui.EActivity" />
+        <activity android:name=".ui.FActivity" />
+
+        <service
+            android:name=".service.AdditionService"
+            android:enabled="true"
+            android:exported="false" />
+        <service
+            android:name=".service.SubtractService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".ui.GActivity" />
+        <activity android:name=".ui.HActivity" />
+        <activity android:name=".ui.IActivity" />
+        <activity
+            android:name=".ui.KActivity"
+            android:label="@string/title_activity_k"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.LActivity" />
+        <activity android:name=".ui.JActivity" />
+        <activity android:name=".ui.MActivity" />
+        <activity android:name=".ui.NActivity" />
+        <activity android:name=".ui.OActivity" />
+        <activity android:name=".ui.PActivity" />
+        <activity android:name=".ui.QActivity" />
+        <activity android:name=".ui.RActivity" />
+        <activity android:name=".ui.SActivity"></activity>
+    </application>
+
+</manifest>

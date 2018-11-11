@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    tools:context=".ui.AActivity">
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="@dimen/size_16dp"
+        app:flexWrap="wrap"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp">
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="toB"
+            android:text="toB"
+            tools:ignore="MissingConstraints,OnClick"
+            />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="toC"
+            android:text="TOC"
+            tools:ignore="MissingConstraints,OnClick" />
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="toD"
+            android:text="TOD"
+            tools:ignore="MissingConstraints,OnClick" />
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="startService"
+            android:text="Start"
+            tools:ignore="MissingConstraints,OnClick" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="stopService"
+            android:text="stop"
+            tools:ignore="MissingConstraints,OnClick" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="bindService"
+            android:text="bind"
+            tools:ignore="MissingConstraints,OnClick" />
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="unbindService"
+            android:text="unbind"
+            tools:ignore="MissingConstraints,OnClick" />
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="toE"
+            android:text="TOE"
+            tools:ignore="MissingConstraints,OnClick" />
+        <Button
+            android:id="@+id/button10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="toFile"
+            android:text="TOFile"
+            tools:ignore="MissingConstraints,OnClick" />
+        <Button
+            android:id="@+id/button11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="fromFile"
+            android:text="FROMFile"
+            tools:ignore="MissingConstraints,OnClick" />
+        <Button
+            android:id="@+id/button12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="delDatabase"
+            android:text="DEL-SQL"
+            tools:ignore="MissingConstraints,OnClick" />
+        <Button
+            android:id="@+id/button13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="insertDatabase"
+            android:text="INS-SQL"
+            tools:ignore="MissingConstraints,OnClick" />
+        <Button
+            android:id="@+id/button14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="getDatabase"
+            android:text="SEL-SQL"
+            tools:ignore="MissingConstraints,OnClick" />
+        <Button
+            android:id="@+id/button15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="toF"
+            android:text="TOF"
+            tools:ignore="MissingConstraints,OnClick" />
+        <Button
+            android:id="@+id/button16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="toAdd"
+            android:text="AIDL"
+            tools:ignore="MissingConstraints,OnClick" />
+
+        <Button
+            android:id="@+id/button17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="toResult"
+            android:text="+"
+            tools:ignore="MissingConstraints,OnClick" />
+        <Button
+            android:id="@+id/button18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="toClient"
+            android:text="IPC"
+            tools:ignore="MissingConstraints,OnClick" />
+        <Button
+            android:id="@+id/button19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="toG"
+            android:text="TOG"
+            tools:ignore="MissingConstraints,OnClick" />
+        <Button
+            android:id="@+id/button20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="toH"
+            android:text="TOH"
+            tools:ignore="MissingConstraints,OnClick" />
+        <Button
+            android:id="@+id/button21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="toI"
+            android:text="TOI"
+            tools:ignore="MissingConstraints,OnClick" />
+        <Button
+            android:id="@+id/button22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="quickSort"
+            android:text="Quick"
+            tools:ignore="MissingConstraints,OnClick" />
+        <Button
+            android:id="@+id/button23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="binarySearch"
+            android:text="Binary"
+            tools:ignore="MissingConstraints,OnClick" />
+        <Button
+            android:id="@+id/button24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="reverseList"
+            android:text="Reverse"
+            tools:ignore="MissingConstraints,OnClick" />
+        <Button
+            android:id="@+id/button25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="toK"
+            android:text="TOK"
+            tools:ignore="MissingConstraints,OnClick" />
+        <Button
+            android:id="@+id/button26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="threadPrint"
+            android:text="T-PRINT"
+            tools:ignore="MissingConstraints,OnClick" />
+        <Button
+            android:id="@+id/button27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="toL"
+            android:text="TOL"
+            tools:ignore="MissingConstraints,OnClick" />
+        <Button
+            android:id="@+id/button28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="toJ"
+            android:text="TOJ"
+            tools:ignore="MissingConstraints,OnClick" />
+        <Button
+            android:id="@+id/button29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="toM"
+            android:text="TOM"
+            tools:ignore="MissingConstraints,OnClick" />
+        <Button
+            android:id="@+id/button30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="toN"
+            android:text="TON"
+            tools:ignore="MissingConstraints,OnClick" />
+        <Button
+            android:id="@+id/button31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="toO"
+            android:text="TOO"
+            tools:ignore="MissingConstraints,OnClick" />
+        <Button
+            android:id="@+id/button32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="toP"
+            android:text="TOP"
+            tools:ignore="MissingConstraints,OnClick" />
+        <Button
+            android:id="@+id/button33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="toQ"
+            android:text="TOQ"
+            tools:ignore="MissingConstraints,OnClick" />
+        <Button
+            android:id="@+id/button34"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="toR"
+            android:text="TOR"
+            tools:ignore="MissingConstraints,OnClick" />
+
+        <Button
+            android:id="@+id/button35"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="toS"
+            android:text="TOS"
+            tools:ignore="MissingConstraints,OnClick" />
+
+    </com.google.android.flexbox.FlexboxLayout>
+
+
+</RelativeLayout>

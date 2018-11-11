@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/exit_layout"
+    android:layout_width="274dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_round_white_widget"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:padding="5dp"
+        android:text="弹框"
+        android:textColor="#333333"
+        android:textSize="20sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_25dp"
+        android:lineSpacingExtra="@dimen/size_7dp"
+        android:layout_marginLeft="@dimen/size_30dp"
+        android:includeFontPadding="false"
+        android:layout_marginRight="@dimen/size_30dp"
+        android:text="测试内容"
+        android:textColor="#333333"
+        android:textSize="@dimen/text_size_16sp" />
+
+    <RelativeLayout
+        android:id="@+id/goLogin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_48dp"
+        android:layout_marginTop="@dimen/size_25dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="#333333"
+            android:textSize="@dimen/text_size_16sp" />
+    </RelativeLayout>
+
+</LinearLayout>
