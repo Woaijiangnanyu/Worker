@@ -21,11 +21,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.AActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ui.BActivity"
@@ -70,7 +65,14 @@
         <activity android:name=".ui.PActivity" />
         <activity android:name=".ui.QActivity" />
         <activity android:name=".ui.RActivity" />
-        <activity android:name=".ui.SActivity"></activity>
+        <activity android:name=".ui.SActivity" />
+        <activity android:name=".ui.FanGaoActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
