@@ -21,7 +21,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.AActivity">
-
         </activity>
         <activity
             android:name=".ui.BActivity"
