@@ -27,19 +27,22 @@ public class CustomView extends View {
     ArrayList<PicDiscernBean.DataBean.QuestionImgsBean> questionImgsBeans;
     private float IconOffset = 25f; // 图标偏移量
     private int IconScaleSize = 20;
-    private int canvasHeight;
-    private int canvasWidth;
-    private float ratio = 2.43f;
+    private float widthScale = 1.0f; // 比例
+    private float heightScale = 1.0f; // 比例
+    private int picHeight;  // 图片高度
+    private int picWidth; // 图片宽度
+    private int viewHeight; // 控件高度
+    private int viewWidth;  // 控件宽度
+
     public CustomView(Context context, AttributeSet attrs) {
         super(context, attrs);
         Log.d(TAG, "Width: " + getWidth() + " \nHeight: " + getHeight());
-        orignBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.homwork);
+        orignBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.homework_1);
         init();
     }
 
     private void init() {
         mPaint = new Paint();
-        mPaint.setColor(Color.rgb(255, 0, 0));
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setStrokeWidth(3);
         mPaint.setAlpha(1000);
@@ -47,6 +50,7 @@ public class CustomView extends View {
         //精确缩放到指定大小
         errorIcon = Bitmap.createScaledBitmap(errorIcon, IconScaleSize, IconScaleSize, true);
         correctIcon = BitmapFactory.decodeResource(getResources(), R.drawable.iconcorrect_2);
+        correctIcon = Bitmap.createScaledBitmap(correctIcon, IconScaleSize, IconScaleSize, true);
         //获取结果图标icon宽高
         mWithError = errorIcon.getWidth();
         mHeightError = errorIcon.getHeight();
@@ -61,26 +65,40 @@ public class CustomView extends View {
         }
     }
 
+    private void onMeasureScale(int viewWidth, int viewHeight, int picWidth, int picHeight) {
+        heightScale = (float) viewHeight / picHeight;
+        widthScale = (float) viewWidth / picWidth;
+        Log.d(TAG, "heightScale:" + heightScale + "widthScale:" + widthScale);
+    }
+
     private void reDrawCanvas(Canvas canvas) {
-        newBitmap = Bitmap.createScaledBitmap(orignBitmap, canvasWidth, canvasHeight, false);
+        onMeasureScale(viewWidth, viewHeight, picWidth, picHeight);
+        newBitmap = Bitmap.createScaledBitmap(orignBitmap, (int) (picWidth * widthScale), (int) (picHeight * heightScale), false);
         canvas.drawBitmap(newBitmap, new Matrix(), new Paint());
         for (int i = 0; i < questionImgsBeans.size(); i++) {
             PicDiscernBean.DataBean.QuestionImgsBean aiDiscern = questionImgsBeans.get(i);
-            float left = aiDiscern.getLeftX();
-            float top = aiDiscern.getTopY();
-            float right = left + aiDiscern.getQuestionWidth();
-            float bottom = top + aiDiscern.getQuestionHeight();
+            float left = aiDiscern.getLeftX() * widthScale;
+            float top = aiDiscern.getTopY() * heightScale;
+            float right = left + aiDiscern.getQuestionWidth() * widthScale;
+            float bottom = top + aiDiscern.getQuestionHeight() * heightScale;
             float iconLeft = right + IconOffset; // 图标坐标
             float iconTop = top + mHeightError / 2;
+            if (aiDiscern.getAnsResult() == 1) {
+                mPaint.setColor(Color.rgb(0, 255, 0));
+                canvas.drawBitmap(correctIcon, iconLeft, iconTop, mPaint);
+            } else {
+                mPaint.setColor(Color.rgb(255, 0, 0));
+                canvas.drawBitmap(errorIcon, iconLeft, iconTop, mPaint);
+            }
             canvas.drawRect(left, top, right, bottom, mPaint);
-            canvas.drawBitmap(errorIcon, iconLeft, iconTop, mPaint);
+
         }
     }
 
     public void updateCanvasData(PicDiscernBean picDiscernBean) {
         PicDiscernBean.DataBean dataBean = picDiscernBean.getData();
-        canvasHeight = dataBean.getImgHeight();
-        canvasWidth = dataBean.getImgWidth();
+        picHeight = dataBean.getImgHeight();
+        picWidth = dataBean.getImgWidth();
         ArrayList<PicDiscernBean.DataBean.QuestionImgsBean> questionImgsBeans = (ArrayList<PicDiscernBean.DataBean.QuestionImgsBean>) dataBean.getQuestionImgs();
         this.questionImgsBeans = questionImgsBeans;
         invalidate();
@@ -92,11 +110,11 @@ public class CustomView extends View {
         // widthMeasureSpec 宽度的规则 包含了两部分 模式 值
         int widthMode = MeasureSpec.getMode(widthMeasureSpec); // 模式
         int widthSize = MeasureSpec.getSize(widthMeasureSpec);// 宽度大小
-        int width = widthSize - getPaddingLeft() - getPaddingRight();// 去掉左右两边的padding
+        viewWidth = widthSize - getPaddingLeft() - getPaddingRight();// 去掉左右两边的padding
         int heightMode = MeasureSpec.getMode(heightMeasureSpec); // 模式
         int heightSize = MeasureSpec.getSize(heightMeasureSpec);// 高度大小
-        int height = heightSize - getPaddingTop() - getPaddingBottom();// 去掉上下两边的padding
-        Log.d(TAG, "Width: " + canvasWidth + " \nHeight: " + canvasHeight);
+        viewHeight = heightSize - getPaddingTop() - getPaddingBottom();// 去掉上下两边的padding
+        Log.d(TAG, "View-Width: " + viewWidth + " \nView-Height: " + viewHeight);
         // 如果width是match_parent
 //        if (widthMode == MeasureSpec.EXACTLY &&
 //                heightMode != MeasureSpec.EXACTLY) {
