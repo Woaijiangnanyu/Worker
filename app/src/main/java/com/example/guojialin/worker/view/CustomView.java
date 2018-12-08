@@ -5,29 +5,33 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.example.guojialin.worker.R;
-import com.example.guojialin.worker.bean.AiDiscern;
+import com.example.guojialin.worker.bean.PicDiscernBean;
 
 import java.util.ArrayList;
 
 public class CustomView extends View {
+    private final String TAG = CustomView.class.getSimpleName();
+    private Bitmap newBitmap;
+    private final Bitmap orignBitmap;
     private Paint mPaint;
-    private Drawable mCustomImage;
     private Bitmap errorIcon, correctIcon;
     private float mWithError, mHeightError, mWithCorrect, mHeightCorrect;
-    private ArrayList<AiDiscern> aiDiscerns;
-    private float IconOffset = 50f; // 图标偏移量
-    private int IconScaleSize = 45;
-
+    ArrayList<PicDiscernBean.DataBean.QuestionImgsBean> questionImgsBeans;
+    private float IconOffset = 25f; // 图标偏移量
+    private int IconScaleSize = 20;
+    private int canvasHeight;
+    private int canvasWidth;
     public CustomView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        mCustomImage = context.getResources().getDrawable(R.drawable.fan_gao);
+        Log.d(TAG, "Width: " + getWidth() + " \nHeight: " + getHeight());
+        orignBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.homwork);
         init();
     }
 
@@ -39,7 +43,7 @@ public class CustomView extends View {
         mPaint.setAlpha(1000);
         errorIcon = BitmapFactory.decodeResource(getResources(), R.drawable.iconfontwenhao1);
         //精确缩放到指定大小
-        errorIcon = Bitmap.createScaledBitmap(errorIcon,IconScaleSize,IconScaleSize, true);
+        errorIcon = Bitmap.createScaledBitmap(errorIcon, IconScaleSize, IconScaleSize, true);
         correctIcon = BitmapFactory.decodeResource(getResources(), R.drawable.iconcorrect_2);
         //获取结果图标icon宽高
         mWithError = errorIcon.getWidth();
@@ -50,30 +54,57 @@ public class CustomView extends View {
 
 
     protected void onDraw(Canvas canvas) {
-        Rect imageBounds = canvas.getClipBounds();  // Adjust this for where you want it
-        mCustomImage.setBounds(imageBounds);
-        mCustomImage.draw(canvas);
-        if (aiDiscerns != null && aiDiscerns.size() != 0) {
+        if (questionImgsBeans != null && questionImgsBeans.size() != 0) {
             reDrawCanvas(canvas);
         }
     }
 
     private void reDrawCanvas(Canvas canvas) {
-        for (int i = 0; i < aiDiscerns.size(); i++) {
-            AiDiscern aiDiscern = aiDiscerns.get(i);
+        newBitmap = Bitmap.createScaledBitmap(orignBitmap, canvasWidth, canvasHeight, false);
+        canvas.drawBitmap(newBitmap, new Matrix(), new Paint());
+        for (int i = 0; i < questionImgsBeans.size(); i++) {
+            PicDiscernBean.DataBean.QuestionImgsBean aiDiscern = questionImgsBeans.get(i);
             float left = aiDiscern.getLeftX();
             float top = aiDiscern.getTopY();
             float right = left + aiDiscern.getQuestionWidth();
             float bottom = top + aiDiscern.getQuestionHeight();
             float iconLeft = right + IconOffset; // 图标坐标
             float iconTop = top + mHeightError / 2;
-            canvas.drawRect(left,top,right,bottom,mPaint);
-            canvas.drawBitmap(errorIcon,iconLeft,iconTop,mPaint);
+            canvas.drawRect(left, top, right, bottom, mPaint);
+            canvas.drawBitmap(errorIcon, iconLeft, iconTop, mPaint);
         }
     }
 
-    public void updateCanvasData(ArrayList<AiDiscern> aiDiscerns) {
-        this.aiDiscerns = aiDiscerns;
+    public void updateCanvasData(PicDiscernBean picDiscernBean) {
+        PicDiscernBean.DataBean dataBean = picDiscernBean.getData();
+        canvasHeight = dataBean.getImgHeight();
+        canvasWidth = dataBean.getImgWidth();
+        ArrayList<PicDiscernBean.DataBean.QuestionImgsBean> questionImgsBeans = (ArrayList<PicDiscernBean.DataBean.QuestionImgsBean>) dataBean.getQuestionImgs();
+        this.questionImgsBeans = questionImgsBeans;
         invalidate();
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        // widthMeasureSpec 宽度的规则 包含了两部分 模式 值
+        int widthMode = MeasureSpec.getMode(widthMeasureSpec); // 模式
+        int widthSize = MeasureSpec.getSize(widthMeasureSpec);// 宽度大小
+        canvasWidth = widthSize - getPaddingLeft() - getPaddingRight();// 去掉左右两边的padding
+        int heightMode = MeasureSpec.getMode(heightMeasureSpec); // 模式
+        int heightSize = MeasureSpec.getSize(heightMeasureSpec);// 高度大小
+        canvasHeight = heightSize - getPaddingTop() - getPaddingBottom();// 去掉上下两边的padding
+        Log.d(TAG, "Width: " + canvasWidth + " \nHeight: " + canvasHeight);
+//        // 如果width是match_parent
+//        if (widthMode == MeasureSpec.EXACTLY &&
+//                heightMode != MeasureSpec.EXACTLY) {
+//            // 修正一下 高度的值 让高度=宽度/比例
+//            height = (int) (width / ratio + 0.5f); // 保证4舍五入
+//        } else if (widthMode != MeasureSpec.EXACTLY && heightMode == MeasureSpec.EXACTLY) { // 由于高度是精确的值 ,宽度随着高度的变化而变化
+//            width = (int) ((height * ratio) + 0.5f);
+//        }
+//        // 重新制作了新的规则
+//        widthMeasureSpec = MeasureSpec.makeMeasureSpec(MeasureSpec.EXACTLY, width + getPaddingLeft() + getPaddingRight());
+//        heightMeasureSpec = MeasureSpec.makeMeasureSpec(MeasureSpec.EXACTLY, height + getPaddingTop() + getPaddingBottom());
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 }
