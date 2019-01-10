@@ -20,7 +20,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.AActivity"></activity>
+        <activity android:name=".ui.AActivity" />
         <activity
             android:name=".ui.BActivity"
             android:theme="@android:style/Theme.Translucent" />
@@ -66,13 +66,26 @@
         <activity android:name=".ui.RActivity" />
         <activity android:name=".ui.SActivity" />
         <activity android:name=".ui.FanGaoActivity">
+        </activity>
+        <activity android:name=".ui.PicActivity"></activity>
+        <activity
+            android:name=".ui.ItemListActivity"
+            android:label="@string/title_item_list"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.PicActivity">
+        <activity
+            android:name=".ui.ItemDetailActivity"
+            android:label="@string/title_item_detail"
+            android:parentActivityName=".ui.ItemListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.guojialin.worker.ui.ItemListActivity" />
         </activity>
     </application>
 
