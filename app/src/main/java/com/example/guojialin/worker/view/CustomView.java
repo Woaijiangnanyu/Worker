@@ -63,6 +63,7 @@ public class CustomView extends View {
         if (questionImgsBeans != null && questionImgsBeans.size() != 0) {
             reDrawCanvas(canvas);
         }
+        questionImgsBeans.clear();
     }
 
     private void onMeasureScale(int viewWidth, int viewHeight, int picWidth, int picHeight) {

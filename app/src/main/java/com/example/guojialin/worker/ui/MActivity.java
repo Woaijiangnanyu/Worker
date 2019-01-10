@@ -57,7 +57,7 @@ public class MActivity extends Activity {
     }
 
     public void loadPic(View view) {
-        final File file = new File("/storage/emulated/0/jiaWorker/wechat_pic_01.jpg");
+        final File file = new File("/storage/emulated/0/jiaWorker/1544348690904_garden_pic.jpeg");
         Runnable runnable = new Runnable() {
             @Override
             public void run() {

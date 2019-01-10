@@ -58,7 +58,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.LActivity" />
         <activity android:name=".ui.JActivity" />
-        <activity android:name=".ui.MActivity" />
+        <activity android:name=".ui.MActivity">
+        </activity>
         <activity android:name=".ui.NActivity" />
         <activity android:name=".ui.OActivity" />
         <activity android:name=".ui.PActivity" />
@@ -66,17 +67,6 @@
         <activity android:name=".ui.RActivity" />
         <activity android:name=".ui.SActivity" />
         <activity android:name=".ui.FanGaoActivity">
-        </activity>
-        <activity android:name=".ui.PicActivity"></activity>
-        <activity
-            android:name=".ui.ItemListActivity"
-            android:label="@string/title_item_list"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ui.ItemDetailActivity"
@@ -86,6 +76,13 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.guojialin.worker.ui.ItemListActivity" />
+        </activity>
+        <activity android:name=".ui.BezierActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
