@@ -50,7 +50,7 @@ public class BezierView extends View {
         mPaintCircle = new Paint();
         mPaintCircle.setColor(Color.RED);
         mPaintCircle.setStrokeWidth(10);
-        mPaintCircle.setStyle(Paint.Style.STROKE);
+        mPaintCircle.setStyle(Paint.Style.FILL);
         mPaintCircle.setAntiAlias(true);
         mCircleRadius = 150;
 
