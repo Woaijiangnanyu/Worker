@@ -58,16 +58,14 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.LActivity" />
         <activity android:name=".ui.JActivity" />
-        <activity android:name=".ui.MActivity">
-        </activity>
+        <activity android:name=".ui.MActivity"></activity>
         <activity android:name=".ui.NActivity" />
         <activity android:name=".ui.OActivity" />
         <activity android:name=".ui.PActivity" />
         <activity android:name=".ui.QActivity" />
         <activity android:name=".ui.RActivity" />
         <activity android:name=".ui.SActivity" />
-        <activity android:name=".ui.FanGaoActivity">
-        </activity>
+        <activity android:name=".ui.FanGaoActivity"></activity>
         <activity
             android:name=".ui.ItemDetailActivity"
             android:label="@string/title_item_detail"
@@ -78,6 +76,8 @@
                 android:value="com.example.guojialin.worker.ui.ItemListActivity" />
         </activity>
         <activity android:name=".ui.BezierActivity">
+        </activity>
+        <activity android:name=".ui.LambdaActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
