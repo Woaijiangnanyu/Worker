@@ -117,21 +117,22 @@ public class AActivity extends BaseActivity {
     public void toS(View view) { IntentUtils.intoSActivity(this); }
 
     public void quickSort(View view){
-//        Runnable runnable = new Runnable() {
-//            @Override
-//            public void run() {
-//                int[] orList = {2,6,3,5,4,1,8,45,2};
-//                orList = SortUtils.quickSort(orList);
-//                for (int i=0;i<orList.length;i++){
-//                  System.out.println(orList[i]);
-//                }
-//            }
-//        };
-//        Thread thread = new Thread(runnable);
-//        thread.start();
-        int [] A = new int[]{1,3,-3};
-        Solution s = new Solution();
-        System.out.println(s.solution(A));
+
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                int[] orList = {2,6,3,5,4,1,8,45,2};
+                orList = SortUtils.quickSort(orList);
+                for (int i=0;i<orList.length;i++){
+                  System.out.println(orList[i]);
+                }
+            }
+        };
+        Thread thread = new Thread(runnable);
+        thread.start();
+//        int [] A = new int[]{1,3,-3};
+//        Solution s = new Solution();
+//        System.out.println(s.solution(A));
 //        Solution solution = new Solution();
 //        int[] arr = {3,1,7,2,6,8,4,5};
 //        solution.change(arr,0,arr.length-1);

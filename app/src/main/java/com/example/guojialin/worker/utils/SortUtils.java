@@ -1,5 +1,7 @@
 package com.example.guojialin.worker.utils;
 
+import java.util.Arrays;
+
 public class SortUtils {
 
     //{2,6,3,5,4,1,8,45,2};
@@ -12,7 +14,9 @@ public class SortUtils {
         if (first < last) {//递归地对主元（pivot）前后的数组进行快排
             int pivotIndex = partition(list, first, last);
             quickSort(list, first, pivotIndex - 1);
+            System.out.println(Arrays.toString(list));
             quickSort(list, pivotIndex + 1, last);
+            System.out.println(Arrays.toString(list));
         }
         return list;
     }
