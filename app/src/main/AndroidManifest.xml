@@ -20,7 +20,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.AActivity" >
+        <activity android:name=".ui.EvaluationActivity">
+        </activity>
+        <activity android:name=".ui.AActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -64,14 +66,14 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.LActivity" />
         <activity android:name=".ui.JActivity" />
-        <activity android:name=".ui.MActivity"></activity>
+        <activity android:name=".ui.MActivity" />
         <activity android:name=".ui.NActivity" />
         <activity android:name=".ui.OActivity" />
         <activity android:name=".ui.PActivity" />
         <activity android:name=".ui.QActivity" />
         <activity android:name=".ui.RActivity" />
         <activity android:name=".ui.SActivity" />
-        <activity android:name=".ui.FanGaoActivity"></activity>
+        <activity android:name=".ui.FanGaoActivity" />
         <activity
             android:name=".ui.ItemDetailActivity"
             android:label="@string/title_item_detail"
@@ -81,11 +83,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.guojialin.worker.ui.ItemListActivity" />
         </activity>
-        <activity android:name=".ui.BezierActivity">
-        </activity>
-        <activity android:name=".ui.LambdaActivity">
-
-        </activity>
+        <activity android:name=".ui.BezierActivity"></activity>
+        <activity android:name=".ui.LambdaActivity"></activity>
     </application>
 
 </manifest>

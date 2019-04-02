@@ -1,6 +1,7 @@
 package com.example.guojialin.worker.ui;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.example.guojialin.worker.R;
 import com.example.guojialin.worker.base.BaseActivity;
@@ -19,10 +20,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class QActivity extends BaseActivity {
 
+    private TextView showDetail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_q);
+        showDetail = findViewById(R.id.show_detail);
 //        request();
 //         request2();
         request3();
@@ -31,15 +34,16 @@ public class QActivity extends BaseActivity {
     }
 public void request3(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.199.213:8080/books/")
+                .baseUrl("http://101.32.33.22:8080/books/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         GetRequest_Interface request_interface = retrofit.create(GetRequest_Interface.class);
-        Call<ResultMessage<Book>> call = request_interface.getBook();
+        Call<ResultMessage<Book>> call = request_interface.getBook("http://101.32.33.22:8080/books/Java程序设计");
         call.enqueue(new Callback<ResultMessage<Book>>() {
             @Override
             public void onResponse(Call<ResultMessage<Book>> call, Response<ResultMessage<Book>> response) {
                 Book book = response.body().getData();
+                showDetail.setText(book.toString());
                 System.out.println(book.toString());
             }
 
