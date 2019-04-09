@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FractionTextView">
+        <attr name="numeratorSize" format="dimension" />
+        <attr name="numeratorValue" format="string" />
+        <attr name="numeratorColor" format="color" />
+        <attr name="denominatorSize" format="dimension" />
+        <attr name="denominatorValue" format="string" />
+        <attr name="denominatorColor" format="color" />
+        <attr name="prefixSize" format="dimension" />
+        <attr name="prefixValue" format="string" />
+        <attr name="prefixColor" format="color" />
+        <attr name="prefixVisible" format="boolean"/>
+    </declare-styleable>
+</resources>

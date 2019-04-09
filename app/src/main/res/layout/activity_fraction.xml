@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.FractionActivity">
+
+    <com.example.guojialin.worker.view.FractionTextView
+        android:id="@+id/fraction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:denominatorColor="#FFAFB2BA"
+        app:denominatorSize="@dimen/text_size_10sp"
+        app:denominatorValue="9"
+        app:numeratorColor="#FF3E434C"
+        app:numeratorSize="18sp"
+        app:numeratorValue="8"
+        app:prefixSize="@dimen/text_size_10sp"
+        app:prefixColor="#FF71D588"
+        app:prefixValue="参与:"
+        app:prefixVisible="false" />
+
+    <com.example.guojialin.worker.view.FractionTextView
+        android:layout_marginTop="5dp"
+        android:id="@+id/fraction_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:denominatorColor="#FFAFB2BA"
+        app:denominatorSize="@dimen/text_size_10sp"
+        app:denominatorValue="25"
+        app:numeratorColor="#FF3E434C"
+        app:numeratorSize="18sp"
+        app:numeratorValue="13"
+        app:prefixSize="@dimen/text_size_10sp"
+        app:prefixColor="#FF71D588"
+        app:prefixValue="正确:"
+        app:prefixVisible="true" />
+</LinearLayout>
