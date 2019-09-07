@@ -144,6 +144,8 @@ public class LambdaActivity extends Activity {
 
     /**
      * function 用法
+     * before -> apply
+     * apply -> andThen
      *
      */
 
