@@ -58,14 +58,14 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.LActivity" />
         <activity android:name=".ui.JActivity" />
-        <activity android:name=".ui.MActivity"></activity>
+        <activity android:name=".ui.MActivity" />
         <activity android:name=".ui.NActivity" />
         <activity android:name=".ui.OActivity" />
         <activity android:name=".ui.PActivity" />
         <activity android:name=".ui.QActivity" />
         <activity android:name=".ui.RActivity" />
         <activity android:name=".ui.SActivity" />
-        <activity android:name=".ui.FanGaoActivity"></activity>
+        <activity android:name=".ui.FanGaoActivity" />
         <activity
             android:name=".ui.ItemDetailActivity"
             android:label="@string/title_item_detail"
@@ -75,15 +75,32 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.guojialin.worker.ui.ItemListActivity" />
         </activity>
-        <activity android:name=".ui.BezierActivity">
-        </activity>
-        <activity android:name=".ui.LambdaActivity">
+        <activity android:name=".ui.BezierActivity"></activity>
+        <activity android:name=".ui.LambdaActivity"></activity>
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter >
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*" />
+            </intent-filter>
         </activity>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.guojialin.worker.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"
+                />
+        </provider>
+
     </application>
 
 </manifest>
